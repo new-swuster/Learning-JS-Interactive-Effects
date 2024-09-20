@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关闭广告</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        #gan #close{
+            position:absolute;
+            width:10px;
+            height:20px;
+            border:3px solid #f40404;
+            text-align:center;
+            cursor:pointer;
+            color:rgb(105, 47, 80);
+        }
+       #gan{
+        width:500px;
+        height:500px;
+        /* 相对定位 */
+        position:relative;
+        background-color: aquamarine;
+       }
+       #gan img{
+        position:absolute;
+        width:500px;
+        height:500px;
+       }
+    </style>
+</head>
+<body>
+    <div id="gan">
+        <img src="/scription/图片1.jpg" id="code">
+        <span id="close">X</span>
+    </div>
+    <script>
+        var closespan = document.getElementById('close');
+        var ganid =document.getElementById('gan');
+        closespan.onclick = function(){
+        ganid.style.display='none';
+        }
+
+    </script>
+</body>
+</html>

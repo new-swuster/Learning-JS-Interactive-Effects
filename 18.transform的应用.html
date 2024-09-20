@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform的应用</title>
+    <style>
+        #box{
+            width:50px;
+            height:50px;
+            background: red;
+            /* translate表示位移 */
+            /* rote表示旋转 */
+            /* scale放大缩小 */
+            /* skew倾斜度 */
+            /* transform:translate(50px, 200px) rotate(50deg) scale(2.0) skew(10deg); */
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">形变</button>
+    <div id="box"></div>
+    <script>
+        window.onload=function(){
+            var btn  = document.getElementById('btn');
+            var box = document.getElementById('box');
+            var index= 0 ;
+            btn.onclick = function(){
+                index++;
+                box.style.transform = `translate(${index*100}px, ${index*50}px) rotate(${index*10}deg) scale(${index*1.5})`;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日期特效</title>
+    <style>
+        *{
+            background-color:#000;
+        }
+        #date {
+            width:450px;
+            height:300px;
+            background-color: lightgreen;
+            border-radius:20px;
+            margin:260px auto;
+        }
+        #nowDate{
+            width:450px;
+            height:60px;
+            line-height:60px;
+            text-align:center;
+            color:#fff;
+            font-size:25px;
+        }
+        #day{
+            width:200px;
+            height:200px;
+            line-height:200px;
+            background-color: lightsalmon;
+            margin: auto;
+            text-align:center;
+            color:#fff;
+            font-size:bold;
+            font-size:50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="date">
+        <p id="nowDate" style="background-color: lightgreen;">
+
+        </p>
+        <p id="day">
+
+        </p>
+    </div>
+    <script>
+        // 获取当前的标签
+        var nowDate = document.getElementById('nowDate');
+        var day = document.getElementById('day');
+        // 定时器更新时间变化
+        setInterval(nowNumTime, 800);
+        nowNumTime();
+        
+         // 获取当前的时间函数
+         function nowNumTime(){
+            var now = new Date();
+            var hour  = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            var year = now.getFullYear();
+            var month = now.getMonth();
+            var d = now.getDate();
+            var week = now.getDay();
+            var weeks = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+            var temp;
+            temp =  '' +(hour > 12 ? hour -12: hour);
+            if(hour === 0){
+                temp = '12';
+            }
+            temp = temp + (minute < 10 ? ':0': ":") + minute;
+            temp = temp + (second < 10 ? ':0': ":") + second;
+            temp = temp + (hour >= 12 ? ' P.M' :" A.M");
+            temp = temp + ' ' + year + '-' + ( month + 1 ) + '-' + d;
+            temp = temp + ' ' + weeks[week];
+            nowDate.innerHTML = temp;
+         }
+    </script>
+</body>
+</html>

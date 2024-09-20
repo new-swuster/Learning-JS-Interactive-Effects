@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>衣服相册切换效果</title>
+    <style>
+        /* 通用样式 */
+        *{
+            padding:0;
+            margin:0;
+
+        }
+        ul{
+            list-style:none;
+            overflow:hidden;
+        }
+        ul li{
+            float:left;
+            width:150px;
+            height:210px;
+            margin-left:20px;
+            margin-top:20px;
+            border:5px solid #fff;
+        }
+        ul li.active{
+            border-color:rgb(17, 6, 240);
+        }
+    </style>
+</head>
+<body>
+    <img src="/scription/图片1.jpg" id="mg" width="400px" height="400px" style="margin-left:20px">
+    <ul>
+        <li class="active">
+            <a href="">
+                <img src="/scription/图片2.jpg" width="150px" class="small">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="/scription/图片3.jpg" width="150px" class="small">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="/scription/图片4.jpg" width="150px" class="small">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="/scription/图片1.jpg" width="150px" class="small">
+            </a>
+        </li>
+    </ul>
+    
+    <script>
+        //  获取事件源
+        var bigmig = document.getElementById('mg');
+        var smallmig = document.getElementsByClassName('small');
+        for( var i = 0;i<smallmig.length;i++){
+            // 遍历集合,并给每个img标签添加点击事件
+            smallmig[i].onmouseover = function(){
+                // 先将所有的类标签赋为空
+                for(var j = 0;j<smallmig.length;j++){
+                    smallmig[j].parentNode.parentNode.setAttribute('class', '');
+                }
+                // 给鼠标悬浮的img标签的父标签添加类名
+                this.parentNode.parentNode.setAttribute('class','active' );
+                // 修改图片
+                // 获取小图
+                var smallsrc = this.getAttribute('src');
+                 // 获取小图
+               bigmig.setAttribute('src', smallsrc)
+
+            }
+        }
+    </script>
+</body>
+</html>

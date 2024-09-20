@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>显示和隐藏图片</title>
+</head>
+<body>
+    <button id="btn">隐藏图片</button>
+    <br>
+    <img src="/scription/图片1.jpg" id="new">
+    <script>
+        var obtn = document.getElementById('btn');
+        var newimg = document.getElementById('new')
+        obtn.onclick=function(){
+            // 事件驱动程序
+            if(obtn.innerHTML === '隐藏图片'){
+                newimg.style.display ='none';
+                obtn.innerHTML = '显示图片';
+                
+            }
+            else{
+                newimg.style.display ='block';
+                obtn.innerHTML = '隐藏图片';
+                
+            }
+        }
+    </script>
+</body>
+</html>

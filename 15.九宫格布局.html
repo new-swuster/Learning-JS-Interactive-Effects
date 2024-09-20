@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九宫格布局</title>
+    <style>
+      *{
+         background: rgb(117, 118, 168);
+      }
+      #wrap{
+         overflow:hidden;
+
+      }
+      #wrap .item .title{
+         overflow:hidden;
+         margin-bottom:10px;
+         line-height:20px;
+      }
+      .imgContainer{
+         width:300px;
+         display:table-cell;
+         text-align:center;
+         color:rgb(14, 217, 58);
+      }
+      .item{
+         margin-left:10px;
+      }
+    </style>
+</head>
+<body>
+     <div class="cols">
+        <button>3列</button>
+        <button>4列</button>
+        <button>5列</button>
+     </div>
+     <div id="wrap">
+        <div class="item">
+         
+         <div class="imgContainer">
+            <img src="http://img.netbian.com/file/2024/0816/small221325ZgNu71723817605.jpg" alt="" style="width:300px;">
+            <p class="title">1</p>
+         </div>
+        </div>
+        <div class="item">
+         <div class="imgContainer">
+            <img src="http://img.netbian.com/file/2024/0816/small221229zX0E31723817549.jpg" alt="" style="width:300px;">
+            <p class="title">2</p>
+         </div>
+        </div>
+        <div class="item">
+         <div class="imgContainer">
+            <img src="http://img.netbian.com/file/2024/0323/small0012132yPPt1711123933.jpg" alt="" style="width:300px;">
+            <p class="title">3</p>
+           
+         </div>
+        </div>
+        <div class="item">
+         <div class="imgContainer">
+            <img src="http://img.netbian.com/file/2024/0715/small003809Bryb51720975089.jpg" alt="" style="width:300px;">
+            <p class="title">4</p>
+         </div>
+        </div>
+        <div class="item">
+         <div class="imgContainer">
+            <img src="http://img.netbian.com/file/2024/0713/small003233UF4p21720801953.jpg" alt="" style="width:300px;">
+            <p class="title">5</p>
+         </div>
+        </div>  
+        <div class="item">
+         <div class="imgContainer">
+            <img src="http://img.netbian.com/file/2024/0601/small211109HF9hy1717247469.jpg" alt="" style="width:300px;">
+            <p class="title">6</p>
+         </div>
+        </div>
+        <div class="item">
+         <div class="imgContainer">
+            <img src="http://img.netbian.com/file/2024/0516/small000718fcXpL1715789238.jpg" alt="" style="width:300px;">
+            <p class="title">7</p>
+         </div>
+        </div>
+        <div class="item">
+         <div class="imgContainer">
+            <img src="http://img.netbian.com/file/2024/0422/small0028154aMHU1713716895.jpg" alt="" style="width:300px;">
+            <p class="title">8</p>
+         </div>
+        </div>
+        <div class="item">
+         <div class="imgContainer">
+            <img src="http://img.netbian.com/file/2024/0325/small234506wB8aC1711381507.jpg" alt="" style="width:300px;">
+            <p class="title">9</p>
+         </div>
+        </div>
+        <div class="item">
+         <div class="imgContainer">
+            <img src="http://img.netbian.com/file/2024/0211/small175931dEZix1707645571.jpg" alt="" style="width:300px;">
+            <p class="title">10</p>
+         </div>
+        </div>
+        <div class="item">
+         <div class="imgContainer">
+            <img src="http://img.netbian.com/file/2023/0924/small162815BPeiI1695544095.jpg" alt="" style="width:300px">
+            <p class="title">11</p>
+         </div>
+        </div>
+        <div class="item">
+         <div class="imgContainer">
+            <img src="http://img.netbian.com/file/2023/0910/085308BFQID.jpg" alt="" style="width:300px">
+            <p class="title">12</p>
+         </div>
+        </div>
+     </div>
+     <script>
+      // 获取标签
+      var btns = document.getElementsByTagName('button');
+      var items = document.getElementsByClassName('item');
+      // 点击事件总函数
+      btns[0].onclick = function(){
+         mxx_flex(3);
+      }
+      btns[1].onclick = function(){
+         mxx_flex(4);
+      }
+      btns[2].onclick = function(){
+         mxx_flex(5);
+      }
+      function mxx_flex(colsNum){
+         for(var i =0 ;i<items.length;i++){
+            items[i].style.float = 'left';
+            items[i].parentNode.style.width = (colsNum*items[i].offsetWidth + colsNum*10) + 'px';
+         }
+      }
+      // // 监听事件的点击
+      // btns[0].onclick = function(){
+      //    //  3列的循环
+      //    for(var i =0;i<items.length;i++){
+      //       items[i].style.float = 'left';
+      //       items[i].parentNode.style.width = (items[i].offsetWidth*3 +30) +'px';
+      //    }
+      // }
+      // btns[1].onclick = function(){
+      //    //  4列的循环
+      //    for(var i =0;i<items.length;i++){
+      //       items[i].style.float = 'left';
+      //       items[i].parentNode.style.width = (items[i].offsetWidth*4 +40) +'px';
+      //    }
+      // }
+      // btns[2].onclick = function(){
+      //    //  5列的循环
+      //    for(var i =0;i<items.length;i++){
+      //       items[i].style.float = 'left';
+      //       items[i].parentNode.style.width = (items[i].offsetWidth*5 +50) +'px';
+      //    }
+      // }
+     </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景切换</title>
+    <style>
+        
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            list-style:none;
+        }
+        #skin{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background-image:url('/scription/R1.jpg');
+            /* background-repeat:no-repeat; */
+        }
+        #skin-photo{
+            width:100%;
+            height:100px;
+            position:relative;
+            z-index:10
+        }
+        #skin-photo ul{
+            overflow:hidden;
+            width:1000px;
+            margin:0 auto;
+            background-color:rgba(255, 255, 255, 0.5)
+        }
+        #skin-photo ul li{
+            float: left;
+            cursor:pointer;
+            height:150px;
+            margin:10px 0 10px 80px;
+        }
+        #skin-photo ul li img{
+            width:150px;
+            height:150px;
+        }
+    </style>
+</head>
+<body>
+    <div id="skin"></div>
+    <div id="skin-photo">
+        <ul>
+            <li>
+                <img src="/scription/R1.jpg"
+              >
+            </li>
+            <li>
+                <img src="/scription/R2.jpg" >
+            </li>
+            <li>
+                <img src="/scription/R3.jpg" 
+                >
+            </li>
+            <li>
+                <img src="/scription/R4.jpg" 
+                >
+            </li>
+        </ul>
+    </div>
+    <script>
+        // 获取图片
+        var skin = document.getElementById('skin');
+        var allItems = document.getElementsByTagName('li');
+        for (let i = 0; i < allItems.length; i++) {
+                allItems[i].index = i+1;
+                allItems[i].onclick = function(){
+                    skin.style.backgroundImage = `url(/scription/R${this.index}.jpg)`;
+                }
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片切换</title>
+</head>
+<body>
+    <img src="/scription//图片1.jpg" id="picture1" width="400px" height="400px">
+    <br>
+    <button id="prev">上一张</button>
+    <button id="next">下一张</button>
+    <!-- 获取事件源 -->
+     <script>
+        // 获取事件
+        var getid1 = document.getElementById('picture1');
+        var nextid = document.getElementById('next');
+        var previd = document.getElementById('prev');
+        // 定义点击事件
+        var index1 = 1;
+        var index2 = 4;
+        var index = index1;
+        nextid.onclick= function(){
+            index++;
+            index %= 5;
+            if( index == 0) index = 1;
+           getid1.setAttribute('src', '/scription/图片' + index + '.jpg')
+
+        }
+        var now = 5;
+        previd.onclick= function()
+        {
+            now--;
+            if(now == 0) now = 4;
+            getid1.setAttribute('src','/scription/图片'+now+'.jpg')
+        }
+        
+     </script>
+</body>
+</html>

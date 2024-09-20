@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发布评论</title>
+    <style>
+        .box{
+            margin:300px auto;
+            width:1000px;
+            border:1px solid #ccc;
+            padding:20px;
+
+        }
+        ul{
+            list-style:none;
+        }
+        #comment{
+            width:80%;
+            padding:10px 10px;
+            font-size:20px;
+            outline:none;
+        }
+        #box_top{
+            margin-bottom:30px;
+        }
+        #comment_content li {
+            border-bottom:1px dashed #000;
+            width:800px;
+            color:rgb(9, 167, 240);
+            line-height:45px;
+        }
+        #comment_content li a{
+            float:right;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box_top">
+            <textarea name="" id="comment" cols="80" rows="10" placeholder="请输入您的评论"></textarea>
+            <button id="btn">发布评论</button>
+        </div>
+        <ul id="comment_content">
+           
+        </ul>
+    </div>
+    <script>
+        window.onload = function(){
+            // 监听按钮的点击
+            $('btn').onclick = function(){
+                // 获取文本框中的内容
+                var content = $('comment').value;
+                // 判读
+                if( content.length === 0){
+                    alert('请输入评论内容才可发布');
+                    return;
+                }
+                // 创建li标签插入到ul中
+                var newli = document.createElement('li');
+                newli.innerHTML = content +' <a href="#">删除</a>';
+                // 新评论插入到最前面
+                $('comment_content').insertBefore(newli, $('comment_content').children[0]);
+                // 清空文本框
+                $('comment').value = '';
+                // 删除评论
+                var delBtns = document.getElementsByTagName('a');
+                for(var i = 0; i<delBtns.length; i++){
+                    delBtns[i].onclick = function(){
+                        this.parentNode.remove();
+                    }
+                }
+            }
+
+
+            function $(id){
+                return typeof id === 'string' ? document.getElementById(id): null;
+            }
+        }
+    </script>
+</body>
+</html>

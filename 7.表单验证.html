@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单验证</title>
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+            font-size:30px;
+            background-color: rgb(211, 192, 149);
+        }
+        #box{
+            margin-top:300px;
+            margin-left:400px;
+        }
+        #prompt{
+            font-size:30px;
+            color:rgb(45, 37, 37);
+        }
+        #score{
+            border:1px solid rgb(48, 42, 42);
+            border-radius:20px;
+            border-color:rgb(44, 44, 44);
+            border:solid 3px;
+        }
+        .right{
+            background:url('./scription/right.jpg') no-repeat 5px center;
+            background-size:40px;
+            padding-left:20px;
+            color:lightgreen !important;
+        }
+        .error{
+            background:url('./scription/error.jpg') no-repeat 5px center;
+            background-size:40px;
+            padding-left:20px;
+            color:red !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <label for="source">你的成绩是:</label>
+        <input type="text" placeholder="请输入你的分数" id="score"">
+        <span id="prompt">请输入你的成绩</span>
+        <script>
+            function $(id) {
+                return typeof id === 'string' ? document.getElementById(id) : null;
+            }
+            // 鼠标失去焦点时input输入框
+            $('score').onblur = function(){
+                //获取输入框内容
+                var value = parseFloat(this.value);
+
+                // 判断, isNaN()反判函数
+                if(isNaN(value)){
+                   // 不是数字
+                   $('prompt').innerHTML = "__输入的成绩不符合条件";
+                   $('prompt').setAttribute('class', 'error');
+                   this.style.borderColor = 'red';
+                }
+                else if(value>=0 && value<=100){
+                    $('prompt').innerHTML = '__输入的成绩正确';
+                    $('prompt').className = 'right';
+                    this.style.borderColor = 'lightgreen';
+                }
+                else{
+                    $('prompt').innerHTML = "__输入的数值应在0~100之间"
+                    $('prompt').className = 'error';
+                }
+            }
+            // 获取焦点，恢复原状态
+            $('score').onfocus = function(){
+                $('prompt').innerHTML = "请输入你的分数";
+                $('prompt').className = '';
+                $('score').style.borderColor = "rgb(44, 44, 44)";
+                $('score').style.outline = 'none';
+                $('score').value='';
+            }
+        </script>
+    </div>
+</body>
+</html>

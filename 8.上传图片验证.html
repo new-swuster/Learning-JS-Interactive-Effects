@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上传图片验证</title  >
+</head>
+<body>
+    <label for="file">上传图片格式验证:</label>
+    <input type="file" name="" id="file">
+    <script>
+        //  校验:jpg 、 png 、 gif 、 jpeg
+        window.onload = function(){
+            // 1.获取标签
+            var file = document.getElementById('file');
+            // 2.监听图片变化
+            file.onchange = function(){
+                // 校验图片格式
+                // 获取上传图片路径
+                var path = this.value;
+                // 截取字符串(确定路径后缀文件格式)
+                var location = path.lastIndexOf('.');
+                // 截取图片格式
+                var suffix = path.substr(location);
+                // 统一把格式转为小写
+                var lower_suffix = suffix.toLowerCase();
+                // 判断文件格式是否复符合要求
+                if(lower_suffix === '.jpg' ||lower_suffix == '.png' || lower_suffix === '.jepg' || lower_suffix === '.gif'){
+                    alert('上传图片格式符合要求');
+                }
+                else {
+                    alert('上传图片格式不符合要求');
+                }
+            }
+        }
+    </script> 
+</body>
+</html>

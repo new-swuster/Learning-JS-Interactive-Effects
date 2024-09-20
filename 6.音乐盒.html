@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐盒</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-size: 30px;
+            background-color: rgb(165, 193, 218);
+        }
+
+        #panel {
+
+            border: 1px solid #ddd;
+            background-color: rgb(109, 177, 236);
+            border-radius: 8px;
+            width: 600px;
+            padding: 20px;
+            margin: 120px auto;
+        }
+
+        .panel-content {
+            background-color: rgb(143, 197, 245);
+            font-family: 'Courier New', Courier, monospace;
+            color: rgb(140, 67, 244);
+        }
+
+        .panel-footer {
+            text-align: center;
+            background-color: rgb(149, 198, 241);
+
+        }
+
+        .panel-footer button {
+            margin: 10px 5px 10px 28px;
+            font-family: 'Courier New', Courier, monospace;
+            color: rgb(12, 4, 159);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="panel">
+        <div class="panel-title">
+            <h3>四四音乐盒</h3>
+            <hr>
+        </div>
+        <div class="panel-content">
+            <input type="checkbox">后来<br>
+            <input type="checkbox">红尘缘<br>
+            <input type="checkbox">花海<br>
+            <input type="checkbox">新地球<br>
+            <input type="checkbox">那些年<br>
+            <input type="checkbox">爱人错过<br>
+            <input type="checkbox">童话<br>
+            <input type="checkbox">成都<br>
+        </div>
+        <div class="panel-footer">
+            <hr>
+
+            <button id="allSelect">全选中</button>
+            <button id="cancelSelect">取消全选中</button>
+            <button id="reverseSelect">反选</button>
+        </div>
+    </div>
+    <script>
+        function $(id) {
+            return typeof id === 'string' ? document.getElementById(id) : null;
+        }
+
+        // 获取所有复选框
+        var checkboxes = document.querySelectorAll('.panel-content input[type="checkbox"]');
+
+        // 全选
+        $('allSelect').onclick = function () {
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = true;
+            }
+        }
+
+        // 取消全选
+        $('cancelSelect').onclick = function () {
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = false;
+            }
+        }
+
+        // 反选
+        $('reverseSelect').onclick = function () {
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = !checkboxes[i].checked;
+            }
+        }
+    </script>
+</body>
+
+</html>
